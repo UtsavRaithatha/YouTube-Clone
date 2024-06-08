@@ -5,7 +5,6 @@ export const postComment = (commentData) => async (dispatch) => {
     const { data } = await api.postComment(commentData);
     dispatch({ type: "POST_COMMENT", payload: data });
     dispatch(getAllComments());
-    console.log(commentData);
   } catch (error) {
     console.log(error);
   }
@@ -15,7 +14,6 @@ export const getAllComments = () => async (dispatch) => {
   try {
     const { data } = await api.getAllComments();
     dispatch({ type: "GET_ALL_COMMENTS", payload: data });
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 const WatchLater = () => {
   const watchLaterList = useSelector((state) => state.watchLaterReducer);
-  console.log(watchLaterList);
   return <WHL page="WatchLater" videoList={watchLaterList} />;
 };
 

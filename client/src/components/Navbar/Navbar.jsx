@@ -14,17 +14,8 @@ import Auth from "../../pages/Auth/Auth";
 
 const Navbar = ({ toggleDrawer, setEditCreateChannelBtn }) => {
   const CurrentUser = useSelector((state) => state.currentUserReducer);
-  // console.log(CurrentUser);
 
   const [authBtn, setAuthBtn] = useState(false);
-
-  // const CurrentUser = {
-  //   result: {
-  //     name: "abc",
-  //     email: "abc@gmail.com",
-  //     joinedOn: "2021-09-17T08:33:50.000Z",
-  //   },
-  // };
 
   useEffect(() => {
     function start() {
@@ -40,7 +31,6 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn }) => {
 
   const onSuccess = (response) => {
     const email = response?.profileObj.email;
-    console.log(email);
     dispatch(login({ email }));
   };
 

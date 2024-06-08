@@ -5,7 +5,6 @@ export const addToHistory = (historyData) => async (dispatch) => {
     const { data } = await api.addToHistory(historyData);
     dispatch({ type: "ADD_TO_HISTORY", data });
     dispatch(getHistory());
-    console.log(historyData);
   } catch (error) {
     console.log(error);
   }
