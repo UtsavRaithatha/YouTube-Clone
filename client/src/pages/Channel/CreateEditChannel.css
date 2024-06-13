@@ -1,5 +1,5 @@
 .container_CreateEditChannel {
-  background-color: rgba(0, 0, 0, 0.589);
+  background-color: var(--container_CreateEditChannel-bg-color);
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -9,28 +9,28 @@
 
 .container_CreateEditChannel2 {
   margin: auto;
-  background-color: rgba(55, 57, 67, 0.293);
+  background-color: var(--container_CreateEditChannel2-bg-color);
   display: flex;
   flex-direction: column;
   position: relative;
   width: 20rem;
   height: 30rem;
   padding: 0.8rem;
-  border: 2px solid white;
+  border: 2px solid var(--text-color);
   border-radius: 0.5rem;
-  box-shadow: 2px 2px white, -2px 2px white;
+  box-shadow: 2px 2px var(--text-color), -2px 2px var(--text-color);
 }
 
 .container_CreateEditChannel2 h1 {
   text-decoration: underline;
-  color: whitesmoke;
+  color: var(--container_CreateEditChannel2-h1-color);
 }
 
 .container_CreateEditChannel2 input,
 .container_CreateEditChannel2 textarea {
-  color: aliceblue;
+  color: var(--aliceblue);
   padding: 0.3rem;
-  border: 2px solid rgb(137, 243, 250);
+  border: 2px solid var(--container_CreateEditChannel2-input-border);
   resize: none;
 }
 
@@ -39,29 +39,29 @@
   font-size: 1rem;
   padding: 0.2rem;
   background-color: transparent;
-  color: black;
+  color: var(--background-color);
   border-radius: 0.2rem;
   margin: 0.2rem;
   font-weight: bold;
 }
 
 .ibtn {
-  background-color: rgb(28, 28, 28);
+  background-color: var(--ibtn-bg-color);
   transition: 1s all;
 }
 
 .ibtn:hover {
-  color: orange;
-  background-color: black;
+  color: var(--ibtn-color-hover);
+  background-color: var(--background-color);
 }
 
 .ibtn_x:hover {
-  color: orange;
+  color: var(--ibtn_x-color-hover);
 }
 
 .ibtn_x {
   border: 0;
-  color: white;
+  color: var(--text-color);
   padding: 0;
   background-color: transparent;
   font-size: 5rem;

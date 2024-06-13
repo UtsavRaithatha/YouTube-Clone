@@ -18,10 +18,10 @@
 }
 
 .iBox_SearchBar {
-  background-color: black;
+  background-color: var(--background-color);
   width: 30rem;
-  border: 1px solid black;
-  color: white;
+  border: 1px solid var(--background-color);
+  color: var(--text-color);
   font-size: large;
   padding: 0.2rem;
   height: 2rem;
@@ -33,22 +33,22 @@
   padding: 0.75rem;
   width: 2rem;
   border-radius: 0.1rem;
-  background-color: rgb(34, 34, 34);
-  color: white;
+  background-color: var(--searchIcon_SearchBar-bg-color);
+  color: var(--text-color);
 }
 
 .searchIcon_SearchBar:hover {
-  background-color: black;
+  background-color: var(--background-color);
 }
 
 .micIcon_SearchBar {
   border-radius: 100%;
   padding: 0.5rem;
-  background-color: rgb(34, 34, 34);
+  background-color: var(--micIcon_SearchBar-bg-color);
 }
 
 .vid_bell_Navbar,
 .micIcon_SearchBar {
-  color: white;
+  color: var(--text-color);
   margin: auto 0.7rem;
 }

@@ -1,5 +1,6 @@
 .Container_SearchList {
-  background-color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
   width: 90.75%;
   position: absolute;
   top: 2.7rem;
@@ -14,5 +15,5 @@
 }
 
 .titleItem:hover {
-  background-color: rgba(166, 202, 234, 0.516);
+  background-color: var(--titleItem-bg-color-hover);
 }

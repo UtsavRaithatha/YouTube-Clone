@@ -7,8 +7,7 @@ import {
   MdOutlineWatchLater,
 } from "react-icons/md";
 import { MdOutlineSubscriptions } from "react-icons/md";
-import shorts from "./shorts.png";
-import { FaHistory } from "react-icons/fa";
+import { FaHistory, FaYoutube } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
@@ -26,7 +25,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
               <div className="text_sidebar_icon">Home</div>
             </p>
           </NavLink>
-          <NavLink to="/" className="icon_sidebar_div">
+          <div className="icon_sidebar_div">
             <p>
               <MdOutlineExplore
                 size={22}
@@ -35,7 +34,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
               />
               <div className="text_sidebar_icon">Explore</div>
             </p>
-          </NavLink>
+          </div>
           <div className="icon_sidebar_div">
             <p>
               <MdOutlineSubscriptions
@@ -43,22 +42,20 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Shorts</div>
+              <div className="text_sidebar_icon">Subscriptions</div>
             </p>
           </div>
 
-          <NavLink to="/subscriptions" className="icon_sidebar_div">
+          <div className="icon_sidebar_div">
             <p>
-              <img
-                src={shorts}
-                width={22}
-                alt="shorts"
+              <FaYoutube
+                size={22}
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Subscriptions</div>
+              <div className="text_sidebar_icon">Shorts</div>
             </p>
-          </NavLink>
+          </div>
         </div>
 
         <div className="libraryBtn_DrawerleftSidebar">

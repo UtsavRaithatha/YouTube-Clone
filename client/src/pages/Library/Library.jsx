@@ -1,7 +1,6 @@
 import React from "react";
 import "./Library.css";
 import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
-import vid from "../../components/Video/vid.mp4";
 import "./Library.css";
 import { FaHistory } from "react-icons/fa";
 import WHLVideoList from "../../components/WHL/WHLVideoList";

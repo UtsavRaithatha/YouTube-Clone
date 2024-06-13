@@ -12,6 +12,8 @@ import { getVideos } from "./actions/video";
 import { getLikedVideos } from "./actions/likedVideo";
 import { getWatchLater } from "./actions/watchLater";
 import { getHistory } from "./actions/history";
+import DarkMode from "./components/DarkMode/DarkMode";
+import { getAllComments } from "./actions/comments";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ function App() {
     dispatch(getLikedVideos());
     dispatch(getWatchLater());
     dispatch(getHistory());
+    dispatch(getAllComments());
   }, [dispatch]);
 
   const [toggleDrawerSidebar, setToggleDrawerSidebar] = useState({
@@ -43,6 +46,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <DarkMode />
         {vidUploadPage && <VideoUpload setVidUploadPage={setVidUploadPage} />}
         {editcreatechannelbtn && (
           <CreateEditChannel

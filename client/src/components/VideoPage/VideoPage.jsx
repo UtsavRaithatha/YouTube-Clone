@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { addToHistory } from "../../actions/history";
 import { viewsVideo } from "../../actions/video";
+import VideoPlayer from "../VideoJS/VideoPlayer";
 
 const VideoPage = () => {
   const { vid } = useParams();
@@ -49,6 +50,10 @@ const VideoPage = () => {
             controls
             autoPlay
           ></video>
+          {/* <VideoPlayer
+            url={process.env.REACT_APP_BACKEND_URL + vv?.filePath}
+            className="video_ShowVideo_videoPage"
+          /> */}
           <div className="video_details_videoPage">
             <div className="video_btns_title_VideoPage_cont">
               <p className="video_title_VideoPage">{vv?.videoTitle}</p>

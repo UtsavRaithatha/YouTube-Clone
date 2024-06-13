@@ -4,7 +4,7 @@
   margin-bottom: 0;
   width: calc(100% - 0.8rem);
   height: 70%;
-  border: 1px solid rgba(128, 128, 128, 0.532);
+  border: 1px solid var(--video_ShowVideo-border);
 }
 
 .video_description {
@@ -15,7 +15,7 @@
 
 .video_details {
   width: 80%;
-  color: aliceblue;
+  color: var(--aliceblue);
   padding: 0.1rem;
   margin: 0.1rem;
   height: fit-content;
@@ -25,14 +25,14 @@
   margin: 0;
   font-size: large;
   font-weight: bolder;
-  color: antiquewhite;
+  color: var(--title_vid_ShowVideo-color);
   display: flex;
   text-align: clip;
 }
 
 .vid_views_UploadTime {
   font-size: medium;
-  color: rgba(250, 235, 215, 0.555);
+  color: var(--vid_views_UploadTime-color);
   margin: 0.2rem;
   display: flex;
 }

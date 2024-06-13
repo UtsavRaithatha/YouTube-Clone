@@ -1,8 +1,8 @@
 .container_videoPage {
   height: calc(100vh - 3.4rem);
   overflow-y: auto;
-  background-color: rgb(11, 11, 11);
-  color: white;
+  background-color: var(--container_videoPage-bg-color);
+  color: var(--text-color);
 }
 
 .container2_videoPage {
@@ -19,12 +19,12 @@
   padding-inline-start: 0.1rem;
   height: 70vh;
   width: 100%;
-  background-color: black;
-  border: 1px solid rgba(37, 37, 37, 0.2);
+  background-color: var(--background-color);
+  border: 1px solid var(--video_ShowVideo_videoPage-border);
 }
 
 .video_btns_title_VideoPage_cont {
-  border-bottom: 3px solid rgba(245, 222, 179, 0.175);
+  border-bottom: 3px solid var(--video_btns_title_VideoPage_cont-border-bottom);
   flex-grow: 1;
 }
 
@@ -48,25 +48,25 @@
 }
 
 .channel_details_videoPage {
-  border-bottom: 3px solid rgba(245, 222, 179, 0.175);
+  border-bottom: 3px solid var(--channel_details_videoPage-border-bottom);
   display: flex;
   text-decoration: none;
-  color: aliceblue;
+  color: var(--aliceblue);
   font-weight: bolder;
 }
 
 .channel_logo_videoPage {
   display: flex;
-  border: 1px solid rgba(0, 0, 0, 0.19);
+  border: 1px solid var(--channel_logo_videoPage-border);
   width: 4rem;
   height: 4rem;
   margin: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.667);
+  background-color: var(--channel_logo_videoPage-bg-color);
   border-radius: 100%;
 }
 
 .channel_logo_videoPage p {
-  color: black;
+  color: var(--background-color);
   margin: auto;
   font-size: xx-large;
 }

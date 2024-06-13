@@ -1,3 +1,214 @@
+:root {
+  --background-color: white;
+  --text-color: #0f0f0f;
+  --aliceblue: rgb(15, 7, 0);
+
+  /* COMPONENTS */
+
+  /* Comments */
+  --comment_ibox-color: #0f0f0f;
+  --comment_ibox-border-bottom: #0f0f0f;
+  --comment_add_btn_comments-border-bottom: rgb(37, 37, 37);
+  --comment_add_btn_comments-border-hover: rgba(64, 64, 64, 0.05);
+  --comment_add_btn_comments-border-bottom-hover: rgb(64, 64, 64);
+  --comment_add_btn_comments-bg-color-hover: rgba(27, 28, 30, 0.05);
+  --comment_body-color: #0f0f0f;
+  --usercommented-color: rgb(35, 35, 35);
+  --EditDel_DisplayComment-color: rgba(44, 85, 209, 0.696);
+
+  /* LeftSidebar */
+
+  --container_leftSidebar-bg-color: rgb(230, 230, 230);
+  --icon_sidebar_div-bg-color: rgb(187, 187, 187);
+  --container2_DrawerLeftSidebar-bg-color: rgb(227, 227, 227);
+  --Drawer_leftsidebar-libraryBtn_DrawerleftSidebar-border-bottom: rgba(
+    127,
+    127,
+    127,
+    0.293
+  );
+  --channel_lsdbar-p-bg-color: rgb(127, 127, 127);
+  --channel_lsdbar-color-hover: rgb(178, 178, 12);
+  --container3_DrawerLeftSidebar-bg-color: rgba(255, 255, 0, 0.488);
+
+  /* Navbar */
+  --Container_Navbar-bg-color: rgb(240, 240, 240);
+
+  /* SearchBar */
+  --searchIcon_SearchBar-bg-color: rgb(221, 221, 221);
+  --micIcon_SearchBar-bg-color: rgb(221, 221, 221);
+
+  /* SearchList */
+  --titleItem-bg-color-hover: rgba(221, 221, 221, 0.516);
+
+  /* ShowVideo */
+  --video_ShowVideo-border: rgba(127, 127, 127, 0.532);
+  --title_vid_ShowVideo-color: rgb(5, 20, 40);
+  --vid_views_UploadTime-color: rgba(5, 20, 40, 0.555);
+
+  /* VideoPage */
+  --container_videoPage-bg-color: rgb(244, 244, 244);
+  --video_ShowVideo_videoPage-border: rgba(219, 219, 219, 0.2);
+  --video_btns_title_VideoPage_cont-border-bottom: rgba(10, 33, 76, 0.175);
+  --channel_details_videoPage-border-bottom: rgba(10, 33, 76, 0.175);
+  --channel_logo_videoPage-border: rgba(255, 255, 255, 0.19);
+  --channel_logo_videoPage-bg-color: rgba(0, 0, 0, 0.667);
+
+  /* WHL */
+  --clear_history_btn: rgb(127, 127, 127);
+  --leftside_whl-bg-color: rgba(240, 240, 240, 0.153);
+
+  /* PAGES */
+
+  /* Auth */
+
+  --Auth_container2-bg-color: rgb(239, 239, 239);
+  --Auth_container2-border: rgba(153, 153, 153, 0.6);
+  --user_details-border-bottom: rgba(127, 127, 127, 0.6);
+  --btn_auth-bg-color-hover: rgb(208, 208, 208);
+
+  /* CreateEditChannel */
+
+  --container_CreateEditChannel-bg-color: rgba(255, 255, 255, 0.589);
+  --container_CreateEditChannel2-bg-color: rgba(200, 198, 188, 0.293);
+  --container_CreateEditChannel2-h1-color: rgb(10, 10, 10);
+  --container_CreateEditChannel2-input-border: rgb(118, 12, 5);
+  --ibtn-bg-color: rgb(227, 227, 227);
+  --ibtn-color-hover: rgb(0, 90, 255);
+  --ibtn_x-color-hover: rgb(0, 90, 255);
+
+  /* Describe Channel */
+
+  --container3_channel-border-bottom: rgba(254, 229, 159, 0.692);
+  --container3_channel-color: rgb(10, 10, 10);
+  --channel_logo_channel-border: rgba(49, 7, 219, 0.66);
+  --channel_logo_channel-bg-color: rgba(92, 135, 4, 0.769);
+  --editbtn_channel-uploadbtn_channel-bg-color: blue;
+  --editbtn_channel-uploadbtn_channel-color-hover: rgb(231, 140, 14);
+
+  /* Home */
+  --navigation_Home-border-bottom: rgba(176, 176, 176, 0.27);
+  --bg-color-btn_nav_home-hover: rgb(179, 179, 179);
+
+  /* VideoUpload */
+
+  --container_VidUpload-bg-color: rgba(0, 0, 0, 0.6);
+  --container2_VidUpload-box-shadow: rgba(142, 142, 142, 0.681);
+  --container2_VidUpload-color: rgb(136, 133, 129);
+  --btn_vidUpload-color-hover: rgb(255, 165, 0);
+
+  /* App */
+
+  --container_Pages_App-bg-color: rgb(240, 240, 240);
+  --container2_Pages_App-border-top: rgb(127, 127, 127, 0.45);
+  --video-bg-color: rgba(247, 247, 247, 0.662);
+}
+
+[data-theme="dark"] {
+  --background-color: #0f0f0f;
+  --text-color: white;
+
+  /* COMPONENTS */
+
+  /* Comments */
+  --comment_ibox-color: wheat;
+  --comment_ibox-border-bottom: grey;
+  --comment_add_btn_comments-border-bottom: rgb(64, 64, 64);
+  --comment_add_btn_comments-border-hover: rgba(64, 64, 64, 0.05);
+  --comment_add_btn_comments-border-bottom-hover: rgb(64, 64, 64);
+  --comment_add_btn_comments-bg-color-hover: rgba(240, 248, 255, 0.05);
+  --comment_body-color: rgb(197, 197, 197);
+  --usercommented-color: rgb(50, 50, 50);
+  --EditDel_DisplayComment-color: rgba(64, 64, 64, 0.696);
+
+  /* LeftSidebar */
+
+  --container_leftSidebar-bg-color: rgb(25, 25, 25);
+  --icon_sidebar_div-bg-color: rgb(68, 68, 68);
+  --container2_DrawerLeftSidebar-bg-color: rgb(28, 28, 28);
+  --Drawer_leftsidebar-libraryBtn_DrawerleftSidebar-border-bottom: rgba(
+    128,
+    128,
+    128,
+    0.293
+  );
+  --channel_lsdbar-p-bg-color: grey;
+  --channel_lsdbar-color-hover: rgb(77, 77, 243);
+  --container3_DrawerLeftSidebar-bg-color: rgba(0, 0, 255, 0.488);
+
+  /* Navbar */
+  --Container_Navbar-bg-color: rgb(15, 15, 15);
+
+  /* SearchBar */
+  --searchIcon_SearchBar-bg-color: rgb(34, 34, 34);
+  --micIcon_SearchBar-bg-color: rgb(34, 34, 34);
+
+  /* SearchList */
+  --titleItem-bg-color-hover: rgba(166, 202, 234, 0.516);
+
+  /* ShowVideo */
+  --video_ShowVideo-border: rgba(128, 128, 128, 0.532);
+  --title_vid_ShowVideo-color: rgb(250, 235, 215);
+  --vid_views_UploadTime-color: rgba(250, 235, 215, 0.555);
+
+  /* VideoPage */
+  --container_videoPage-bg-color: rgb(11, 11, 11);
+  --video_ShowVideo_videoPage-border: rgba(37, 37, 37, 0.2);
+  --video_btns_title_VideoPage_cont-border-bottom: rgba(245, 222, 179, 0.175);
+  --channel_details_videoPage-border-bottom: rgba(245, 222, 179, 0.175);
+  --channel_logo_videoPage-border: rgba(0, 0, 0, 0.19);
+  --channel_logo_videoPage-bg-color: rgba(255, 255, 255, 0.667);
+
+  /* WHL */
+  --clear_history_btn: rgb(128, 128, 128);
+  --leftside_whl-bg-color: rgba(15, 15, 15, 0.153);
+
+  /* PAGES */
+
+  /* Auth */
+
+  --Auth_container2-bg-color: rgb(16, 16, 16);
+  --Auth_container2-border: rgba(102, 102, 102, 0.6);
+  --user_details-border-bottom: rgba(128, 128, 128, 0.6);
+  --btn_auth-bg-color-hover: rgb(47, 47, 47);
+
+  /* CreateEditChannel */
+
+  --container_CreateEditChannel-bg-color: rgba(0, 0, 0, 0.589);
+  --container_CreateEditChannel2-bg-color: rgba(55, 57, 67, 0.293);
+  --container_CreateEditChannel2-h1-color: rgb(245, 245, 245);
+  --container_CreateEditChannel2-input-border: rgb(137, 243, 250);
+  --ibtn-bg-color: rgb(28, 28, 28);
+  --ibtn-color-hover: rgb(255, 165, 0);
+  --ibtn_x-color-hover: rgb(255, 165, 0);
+
+  /* Describe Channel */
+
+  --container3_channel-border-bottom: rgba(1, 26, 96, 0.692);
+  --container3_channel-color: rgb(245, 245, 245);
+  --channel_logo_channel-border: rgba(49, 7, 219, 0.66);
+  --channel_logo_channel-bg-color: rgba(92, 135, 4, 0.769);
+  --editbtn_channel-uploadbtn_channel-bg-color: blue;
+  --editbtn_channel-uploadbtn_channel-color-hover: rgb(231, 140, 14);
+
+  /* Home */
+  --navigation_Home-border-bottom: rgba(128, 128, 128, 0.27);
+  --bg-color-btn_nav_home-hover: rgb(128, 128, 128);
+
+  /* VideoUpload */
+
+  --container_VidUpload-bg-color: rgba(0, 0, 0, 0.6);
+  --container2_VidUpload-box-shadow: rgba(142, 142, 142, 0.681);
+  --container2_VidUpload-color: rgb(136, 133, 129);
+  --btn_vidUpload-color-hover: rgb(255, 165, 0);
+
+  /* App */
+
+  --container_Pages_App-bg-color: rgb(15, 15, 15);
+  --container2_Pages_App-border-top: rgb(128, 128, 128, 0.45);
+  --video-bg-color: rgba(8, 8, 8, 0.662);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +216,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: hidden;
 }
 
 code {

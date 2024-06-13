@@ -1,18 +1,18 @@
 .container3_channel {
-  border-bottom: 3px solid rgba(1, 26, 96, 0.692);
+  border-bottom: 3px solid var(--container3_channel-border-bottom);
   padding: 0.5rem;
-  color: whitesmoke;
+  color: var(--container3_channel-color);
   position: relative;
 }
 
 .channel_logo_channel {
-  border: 10px solid rgba(49, 7, 219, 0.66);
+  border: 10px solid var(--channel_logo_channel-border);
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
   display: flex;
   margin: 0 auto;
-  background-color: rgba(92, 135, 4, 0.769);
+  background-color: var(--channel_logo_channel-bg-color);
 }
 
 .channel_logo_channel b {
@@ -37,11 +37,11 @@
   position: absolute;
   right: 1rem;
   top: 0.5rem;
-  background-color: blue;
+  background-color: var(--editbtn_channel-uploadbtn_channel-bg-color);
   padding: 0.5rem;
   border: 2px solid transparent;
   border-radius: 0.5rem;
-  color: white;
+  color: var(--background-color);
   transition: all 1s;
   cursor: pointer;
 }
@@ -53,5 +53,5 @@
 .editbtn_channel:hover,
 .uploadbtn_channel:hover {
   border: 2px solid;
-  color: rgb(231, 140, 14);
+  color: var(--editbtn_channel-uploadbtn_channel-color-hover);
 }

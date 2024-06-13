@@ -3,10 +3,10 @@ import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineExplore } from "react-icons/md";
 import { MdOutlineSubscriptions } from "react-icons/md";
 import { MdOutlineVideoLibrary } from "react-icons/md";
-import shorts from "./shorts.png";
 
 import "./LeftSidebar.css";
 import { NavLink } from "react-router-dom";
+import { FaYoutube } from "react-icons/fa";
 
 const LeftSidebar = () => {
   return (
@@ -16,22 +16,22 @@ const LeftSidebar = () => {
         <div className="text_sidebar_icon">Home</div>
       </NavLink>
 
-      <NavLink to={"/library"} className="icon_sidebar_div">
+      <div className="icon_sidebar_div">
         <MdOutlineExplore size={22} className="icon_sidebar" />
         <div className="text_sidebar_icon">Explore</div>
-      </NavLink>
+      </div>
 
-      <NavLink to={"/library"} className="icon_sidebar_div">
-        <img src={shorts} alt="shorts" width={22} className="icon_sidebar" />
+      <div className="icon_sidebar_div">
+        <FaYoutube size={22} className="icon_sidebar" />
         <div className="text_sidebar_icon">Shorts</div>
-      </NavLink>
+      </div>
 
-      <NavLink to={"/subscriptions"} className="icon_sidebar_div">
+      <div className="icon_sidebar_div">
         <MdOutlineSubscriptions size={22} className="icon_sidebar" />
         <div className="text_sidebar_icon" style={{ fontSize: "12px" }}>
           Subscriptions
         </div>
-      </NavLink>
+      </div>
 
       <NavLink to={"/library"} className="icon_sidebar_div">
         <MdOutlineVideoLibrary size={22} className="icon_sidebar" />

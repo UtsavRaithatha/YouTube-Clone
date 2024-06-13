@@ -14,12 +14,12 @@
   display: flex;
   position: absolute;
   right: 2.5rem;
-  background-color: rgb(16, 16, 16);
+  background-color: var(--Auth_container2-bg-color);
   top: 1rem;
   text-align: center;
   flex-direction: column;
-  border: 1px solid rgba(102, 102, 102, 0.6);
-  color: aliceblue;
+  border: 1px solid var(--Auth_container2-border);
+  color: var(--aliceblue);
   z-index: 500;
 }
 
@@ -27,7 +27,7 @@
   margin: 0 auto;
   padding: 0.7rem;
   display: flex;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid var(--user_details-border-bottom);
   padding-inline-start: 1.2rem 0.9rem;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .btn_auth {
-  color: aliceblue;
+  color: var(--aliceblue);
   font-weight: bolder;
   font-size: larger;
   padding: 0.5rem 0.5rem;
@@ -49,7 +49,7 @@
 }
 
 .btn_auth:hover {
-  background-color: rgb(47, 47, 47);
+  background-color: var(--btn_auth-bg-color-hover);
 }
 
 .btns_auth {

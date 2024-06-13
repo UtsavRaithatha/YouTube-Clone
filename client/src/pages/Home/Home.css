@@ -1,21 +1,21 @@
 .navigation_Home {
-  color: white;
-  background-color: rgb(37, 37, 37);
+  color: var(--text-color);
+  background-color: var(--background-color);
   position: sticky;
   display: flex;
   overflow-x: auto;
   top: 0;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.27);
+  border-bottom: 2px solid var(--navigation_Home-border-bottom);
 }
 
 .btn_nav_home {
-    background-color: rgb(46, 46, 46);
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 45px;
-    cursor: pointer;
+  background-color: var(--background-color);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 45px;
+  cursor: pointer;
 }
 
 .btn_nav_home:hover {
-    background-color: rgb(128, 128, 128);
+  background-color: var(--bg-color-btn_nav_home-hover);
 }

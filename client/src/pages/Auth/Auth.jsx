@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import "./Auth.css";
 import { GoogleLogout } from "react-google-login";
 import { BiLogOut } from "react-icons/bi";

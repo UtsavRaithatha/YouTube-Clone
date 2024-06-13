@@ -2,6 +2,9 @@ import React from "react";
 import ShowVideoList from "../ShowVideoList/ShowVideoList";
 
 const WHLVideoList = ({ page, currentUser, videoList }) => {
+  const theme = document.body.getAttribute("data-theme");
+  const color = theme === "dark" ? "white" : "black";
+
   return (
     <>
       {currentUser ? (
@@ -19,7 +22,7 @@ const WHLVideoList = ({ page, currentUser, videoList }) => {
         </>
       ) : (
         <>
-          <h2 style={{ color: "white" }}>Please login to Watch your {page} </h2>
+          <h2 style={{ color: color }}>Please login to Watch your {page} </h2>
         </>
       )}
     </>
