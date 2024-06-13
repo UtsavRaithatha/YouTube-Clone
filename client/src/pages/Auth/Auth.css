@@ -36,10 +36,11 @@
   padding: 0.2rem 0.5rem;
   font-weight: bolder;
   margin: auto;
+  color: var(--text-color);
 }
 
 .btn_auth {
-  color: var(--aliceblue);
+  color: var(--text-color);
   font-weight: bolder;
   font-size: larger;
   padding: 0.5rem 0.5rem;
