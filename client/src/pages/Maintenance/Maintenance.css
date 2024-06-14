@@ -1,19 +1,22 @@
 .maintenance-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--background-color);
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-.maintenance-container h1 {
-  font-size: 3rem;
+h1 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
-.maintenance-container p {
-  font-size: 1.5rem;
+.maintenance-text {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-color);
 }
