@@ -10,6 +10,20 @@ api.interceptors.request.use((req) => {
   return req;
 });
 
+api.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    if (err && err.response.status === 503) {
+      if (window.location.pathname !== "/maintenance") {
+        window.location.href = "/maintenance";
+      }
+    }
+    return Promise.reject(err);
+  }
+);
+
+export const checkApi = () => api.get("/api/check");
+
 export const login = (authData) => api.post("/user/login", authData);
 
 export const updateChannelData = (id, channelData) =>

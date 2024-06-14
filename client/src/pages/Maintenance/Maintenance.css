@@ -1,0 +1,19 @@
+.maintenance-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+}
+
+.maintenance-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.maintenance-container p {
+  font-size: 1.5rem;
+}

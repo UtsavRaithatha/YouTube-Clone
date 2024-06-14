@@ -7,6 +7,7 @@ import userRoutes from "./routes/userRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
 import path from "path";
+import { maintenance } from "./middleware/maintenance.js";
 
 dotenv.config();
 
@@ -16,8 +17,14 @@ app.use(bodyParser.json());
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
+app.use(maintenance);
+
 app.get("/", (req, res) => {
   res.send("Hello World");
+});
+
+app.get("/api/check", (req, res) => {
+  res.status(200).json({ message: "Server is up and running" });
 });
 
 app.use("/user", userRoutes);

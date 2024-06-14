@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AllRoutes from "./components/AllRoutes";
 import DrawerSidebar from "./components/LeftSidebar/DrawerSidebar";
 import CreateEditChannel from "./pages/Channel/CreateEditChannel";
@@ -14,18 +14,46 @@ import { getWatchLater } from "./actions/watchLater";
 import { getHistory } from "./actions/history";
 import DarkMode from "./components/DarkMode/DarkMode";
 import { getAllComments } from "./actions/comments";
+import Maintenance from "./pages/Maintenance/Maintenance";
+import { checkApi } from "./api";
 
 function App() {
   const dispatch = useDispatch();
+  const [isMaintenance, setIsMaintenance] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchAllChannels());
-    dispatch(getVideos());
-    dispatch(getLikedVideos());
-    dispatch(getWatchLater());
-    dispatch(getHistory());
-    dispatch(getAllComments());
-  }, [dispatch]);
+    const checkMaintenance = async () => {
+      try {
+        const res = await checkApi();
+
+        if (res.status === 503) {
+          setIsMaintenance(true);
+        } else {
+          setIsMaintenance(false);
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 503) {
+          setIsMaintenance(true);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkMaintenance();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading && !isMaintenance) {
+      dispatch(fetchAllChannels());
+      dispatch(getVideos());
+      dispatch(getLikedVideos());
+      dispatch(getWatchLater());
+      dispatch(getHistory());
+      dispatch(getAllComments());
+    }
+  }, [dispatch, isLoading, isMaintenance]);
 
   const [toggleDrawerSidebar, setToggleDrawerSidebar] = useState({
     display: "none",
@@ -47,24 +75,34 @@ function App() {
     <div className="App">
       <Router>
         <DarkMode />
-        {vidUploadPage && <VideoUpload setVidUploadPage={setVidUploadPage} />}
-        {editcreatechannelbtn && (
-          <CreateEditChannel
-            setEditCreateChannelBtn={setEditCreateChannelBtn}
-          />
+        {isMaintenance ? (
+          <Routes>
+            <Route path="/maintenance" element={<Maintenance />} />
+          </Routes>
+        ) : (
+          <>
+            {vidUploadPage && (
+              <VideoUpload setVidUploadPage={setVidUploadPage} />
+            )}
+            {editcreatechannelbtn && (
+              <CreateEditChannel
+                setEditCreateChannelBtn={setEditCreateChannelBtn}
+              />
+            )}
+            <Navbar
+              setEditCreateChannelBtn={setEditCreateChannelBtn}
+              toggleDrawer={toggleDrawer}
+            />
+            <DrawerSidebar
+              toggleDrawer={toggleDrawer}
+              toggleDrawerSidebar={toggleDrawerSidebar}
+            />
+            <AllRoutes
+              setEditCreateChannelBtn={setEditCreateChannelBtn}
+              setVidUploadPage={setVidUploadPage}
+            />
+          </>
         )}
-        <Navbar
-          setEditCreateChannelBtn={setEditCreateChannelBtn}
-          toggleDrawer={toggleDrawer}
-        />
-        <DrawerSidebar
-          toggleDrawer={toggleDrawer}
-          toggleDrawerSidebar={toggleDrawerSidebar}
-        />
-        <AllRoutes
-          setEditCreateChannelBtn={setEditCreateChannelBtn}
-          setVidUploadPage={setVidUploadPage}
-        />
       </Router>
     </div>
   );
