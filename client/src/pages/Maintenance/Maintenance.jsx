@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Maintenance.css";
 
 const Maintenance = () => {
-  // on reload redirect to "/"
-  const [redirected, setRedirected] = useState(false);
-
   useEffect(() => {
-    if (!redirected) {
-      setTimeout(() => {
-        setRedirected(true);
+    const checkAndRedirect = async () => {
+      const now = new Date();
+      const hour = new Intl.DateTimeFormat("en-US", {
+        hour: "numeric",
+        hour12: false,
+        timeZone: "Asia/Kolkata",
+      }).format(now);
+
+      if (parseInt(hour) !== 12) {
         window.location.href = "/";
-      }, 50000);
-    }
-  }, [redirected]);
+      }
+    };
+
+    const interval = setInterval(() => {
+      checkAndRedirect();
+    }, 300000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="maintenance-container">

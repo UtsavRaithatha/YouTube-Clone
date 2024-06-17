@@ -73,3 +73,13 @@ export const editComment = (id, commentBody) =>
   api.patch(`/comment/edit/${id}`, { commentBody });
 
 export const getAllComments = () => api.get("/comment/get");
+
+export const sendOTP = (email) => api.post("/verify/sendOTP", { email });
+
+export const verifyOTP = (email, otp) =>
+  api.post("/verify/verifyOTP", { email, otp });
+
+export const sendOTPSMS = (phone) => api.post("/verify/sendOTP-sms", { phone });
+
+export const verifyOTPSMS = (phone, otp) =>
+  api.post("/verify/verifyOTP-sms", { phone, otp });

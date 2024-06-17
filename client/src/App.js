@@ -21,6 +21,7 @@ function App() {
   const dispatch = useDispatch();
   const [isMaintenance, setIsMaintenance] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [OTPPage, setOTPPage] = useState(false);
 
   useEffect(() => {
     const checkMaintenance = async () => {
@@ -69,6 +70,10 @@ function App() {
     }
   };
 
+  const toggleOTPPage = (val) => {
+    setOTPPage(val);
+  };
+
   const [vidUploadPage, setVidUploadPage] = useState(false);
 
   return (
@@ -81,26 +86,31 @@ function App() {
           </Routes>
         ) : (
           <>
-            {vidUploadPage && (
-              <VideoUpload setVidUploadPage={setVidUploadPage} />
-            )}
-            {editcreatechannelbtn && (
-              <CreateEditChannel
-                setEditCreateChannelBtn={setEditCreateChannelBtn}
-              />
-            )}
             <Navbar
               setEditCreateChannelBtn={setEditCreateChannelBtn}
               toggleDrawer={toggleDrawer}
+              toggleOTPPage={toggleOTPPage}
             />
-            <DrawerSidebar
-              toggleDrawer={toggleDrawer}
-              toggleDrawerSidebar={toggleDrawerSidebar}
-            />
-            <AllRoutes
-              setEditCreateChannelBtn={setEditCreateChannelBtn}
-              setVidUploadPage={setVidUploadPage}
-            />
+            {!OTPPage && (
+              <>
+                {vidUploadPage && (
+                  <VideoUpload setVidUploadPage={setVidUploadPage} />
+                )}
+                {editcreatechannelbtn && (
+                  <CreateEditChannel
+                    setEditCreateChannelBtn={setEditCreateChannelBtn}
+                  />
+                )}
+                <DrawerSidebar
+                  toggleDrawer={toggleDrawer}
+                  toggleDrawerSidebar={toggleDrawerSidebar}
+                />
+                <AllRoutes
+                  setEditCreateChannelBtn={setEditCreateChannelBtn}
+                  setVidUploadPage={setVidUploadPage}
+                />
+              </>
+            )}
           </>
         )}
       </Router>

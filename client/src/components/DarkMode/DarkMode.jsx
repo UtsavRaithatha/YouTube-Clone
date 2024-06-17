@@ -4,12 +4,13 @@ const DarkMode = () => {
   const [theme, setTheme] = useState("dark");
 
   const getLocation = () => {
-    fetch("http://ip-api.com/json/")
+    fetch(`https://ipinfo.io/json?token=${process.env.REACT_APP_IPINFO_TOKEN}`)
       .then((response) => response.json())
       .then((data) => {
-        const state = data.regionName;
+        const state = data.region;
         if (
           state === "Tamil Nadu" ||
+          state === "Kerala" ||
           state === "Karnataka" ||
           state === "Andhra Pradesh" ||
           state === "Telangana"

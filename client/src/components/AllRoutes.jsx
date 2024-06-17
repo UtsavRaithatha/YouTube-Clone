@@ -9,6 +9,7 @@ import WatchLater from "../pages/WatchLater/WatchLater";
 import VideoPage from "./VideoPage/VideoPage";
 import Channel from "../pages/Channel/Channel";
 import Search from "../pages/Search/Search";
+import OTPScreen from "./OTPScreen/OTPScreen";
 
 const AllRoutes = ({ setEditCreateChannelBtn, setVidUploadPage }) => {
   return (
@@ -30,6 +31,7 @@ const AllRoutes = ({ setEditCreateChannelBtn, setVidUploadPage }) => {
           />
         }
       />
+      <Route path="/otp" element={<OTPScreen />} />
     </Routes>
   );
 };

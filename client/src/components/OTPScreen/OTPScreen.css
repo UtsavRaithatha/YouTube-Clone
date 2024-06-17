@@ -1,0 +1,77 @@
+.otp-screen {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  height: 100vh;
+  width: 100vw;
+}
+
+.otp-screen h2 {
+  margin: 4rem;
+  font-size: 3rem;
+}
+
+.otp-screen form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.otp-expiry {
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.otp-field {
+  margin: 0.8rem;
+  height: 6rem;
+  width: 5rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border: 0.1rem solid var(--text-color);
+}
+
+.otp-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-resend,
+.otp-submit {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-weight: bolder;
+  border: 0.1rem solid var(--text-color);
+  transition: 0.3s;
+}
+
+.otp-resend:hover,
+.otp-submit:hover {
+  cursor: pointer;
+  background-color: rgb(234, 51, 34);
+}
+
+@media (max-width: 768px) {
+  .otp-field {
+    height: 4rem;
+    width: 2.5rem;
+    margin: 0.6rem;
+  }
+}
