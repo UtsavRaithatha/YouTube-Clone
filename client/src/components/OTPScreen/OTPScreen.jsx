@@ -28,7 +28,7 @@ const OTPScreen = ({ sendOTP, verifyOTP, emailOrPhone }) => {
   };
 
   const handleResetOTP = () => {
-    setOTP(new Array(6).fill(""));
+    setOTP(new Array(4).fill(""));
     sendOTP(emailOrPhone);
     alert("OTP has been resent");
   };

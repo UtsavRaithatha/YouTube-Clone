@@ -18,7 +18,6 @@ import {
   sendOTPSMS as sendOTPSMSAction,
   verifyOTPSMS as verifyOTPSMSAction,
 } from "../../actions/verify";
-import axios from "axios";
 import PhoneScreen from "../PhoneScreen/PhoneScreen";
 
 const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
