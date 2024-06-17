@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
+import verifyRoutes from "./routes/verifyRoutes.js";
 import path from "path";
 import { maintenance } from "./middleware/maintenance.js";
 
@@ -30,6 +31,7 @@ app.get("/api/check", (req, res) => {
 app.use("/user", userRoutes);
 app.use("/video", videoRoutes);
 app.use("/comment", commentRoutes);
+app.use("/verify", verifyRoutes);
 app.use("/uploads", express.static(path.join("uploads")));
 
 const PORT = process.env.PORT || 5000;

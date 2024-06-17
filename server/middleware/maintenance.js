@@ -7,7 +7,7 @@ export const maintenance = (req, res, next) => {
     timeZone: "Asia/Kolkata",
   }).format(date);
 
-  if (parseInt(hours) === 13) {
+  if (parseInt(hours) === 12) {
     return res.status(503).json({
       message: "Server is under maintenance, please try again later",
     });
