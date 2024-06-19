@@ -22,6 +22,7 @@ const DescribeChannel = ({
       <div className="description_channel">
         <b>{currentChannel?.name}</b>
         <p>{currentChannel?.desc}</p>
+        <p>Points: {currentChannel?.points}</p>
       </div>
       {currentUser?.result._id === currentChannel?._id && (
         <>

@@ -11,7 +11,7 @@ const Maintenance = () => {
         timeZone: "Asia/Kolkata",
       }).format(now);
 
-      if (parseInt(hour) !== 13) {
+      if (parseInt(hour) !== 11) {
         window.location.href = "/";
       }
     };

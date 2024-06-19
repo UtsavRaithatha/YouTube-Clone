@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { addToHistory } from "../../actions/history";
 import { viewsVideo } from "../../actions/video";
-import VideoPlayer from "../VideoJS/VideoPlayer";
+// import VideoPlayer from "../VideoJS/VideoPlayer";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import { addWatchedVideos } from "../../actions/channelUser";
 
 const VideoPage = () => {
   const { vid } = useParams();
@@ -33,9 +35,14 @@ const VideoPage = () => {
     dispatch(viewsVideo({ videoId: vid }));
   };
 
+  const handleWatchedVideos = () => {
+    dispatch(addWatchedVideos(currentUser?.result?._id, vid));
+  };
+
   useEffect(() => {
     if (currentUser) {
       handleHistory();
+      handleWatchedVideos();
     }
     handleViews();
   }, []);
@@ -44,16 +51,13 @@ const VideoPage = () => {
     <div className="container_videoPage">
       <div className="container2_videoPage">
         <div className="video_display_screen_videoPage">
-          <video
+          {/* <video
             src={process.env.REACT_APP_BACKEND_URL + vv?.filePath}
             className="video_ShowVideo_videoPage"
             controls
             autoPlay
-          ></video>
-          {/* <VideoPlayer
-            url={process.env.REACT_APP_BACKEND_URL + vv?.filePath}
-            className="video_ShowVideo_videoPage"
-          /> */}
+          ></video> */}
+          <VideoPlayer url={process.env.REACT_APP_BACKEND_URL + vv?.filePath} />
           <div className="video_details_videoPage">
             <div className="video_btns_title_VideoPage_cont">
               <p className="video_title_VideoPage">{vv?.videoTitle}</p>

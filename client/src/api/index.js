@@ -83,3 +83,6 @@ export const sendOTPSMS = (phone) => api.post("/verify/sendOTP-sms", { phone });
 
 export const verifyOTPSMS = (phone, otp) =>
   api.post("/verify/verifyOTP-sms", { phone, otp });
+
+export const addWatchedVideos = (id, videoId) =>
+  api.post(`/user/addWatchedVideos/${id}`, { videoId });

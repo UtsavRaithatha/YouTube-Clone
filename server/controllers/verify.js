@@ -1,9 +1,7 @@
 import nodemailer from "nodemailer";
-import { Vonage } from "@vonage/server-sdk";
 import otpGenerator from "otp-generator";
 import { OTPEmail, OTPPhone } from "../models/otp.js";
 import twilio from "twilio";
-import messagebird from "messagebird";
 
 export const sendOTP = async (req, res) => {
   const { email } = req.body;

@@ -19,3 +19,13 @@ export const updateChannelData = (id, channelData) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const addWatchedVideos = (id, videoId) => async (dispatch) => {
+  try {
+    const { data } = await api.addWatchedVideos(id, videoId);
+    dispatch({ type: "ADD_WATCHED_VIDEOS", payload: data });
+    // dispatch(fetchAllChannels());
+  } catch (error) {
+    console.log(error);
+  }
+};

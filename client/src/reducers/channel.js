@@ -6,6 +6,10 @@ const channelReducer = (states = [], action) => {
       );
     case "FETCH_CHANNELS":
       return action.payload;
+    case "ADD_WATCHED_VIDEOS":
+      return states.map((state) =>
+        state._id === action.payload._id ? action.payload : state
+      );
     default:
       return states;
   }

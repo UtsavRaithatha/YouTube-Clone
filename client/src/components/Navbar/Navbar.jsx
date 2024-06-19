@@ -68,7 +68,7 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
 
   const sendOTP = async (emailOrPhone) => {
     try {
-      if (otpType === "email") {
+      if (otpType === "phone") {
         dispatch(sendOTPAction(emailOrPhone));
       } else {
         dispatch(sendOTPSMSAction(emailOrPhone));
@@ -82,7 +82,7 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
     const email = response?.profileObj.email;
     setUserEmail(email);
 
-    if (otpType === "email") {
+    if (otpType === "phone") {
       await sendOTP(email);
       setShowOTPPage(true);
       toggleOTPPage(true);
@@ -98,7 +98,7 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
   };
 
   const verifyOTP = async (OTP) => {
-    if (otpType === "email") {
+    if (otpType === "phone") {
       try {
         const res = await dispatch(
           VerifyOTPAction({ email: userEmail, otp: OTP })
