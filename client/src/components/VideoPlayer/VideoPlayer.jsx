@@ -5,8 +5,7 @@ import Plyr from "plyr";
 
 const VideoPlayer = ({ url, showControls }) => {
   const videoRef = useRef(null);
-
-  console.log(url);
+  
   useEffect(() => {
     const video = videoRef.current;
 
