@@ -39,7 +39,7 @@
   font-size: 1rem;
   padding: 0.2rem;
   background-color: transparent;
-  color: var(--background-color);
+  color: var(--text-color) !important;
   border-radius: 0.2rem;
   margin: 0.2rem;
   font-weight: bold;

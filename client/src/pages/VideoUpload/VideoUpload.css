@@ -28,7 +28,7 @@
   border-radius: 5px;
   background-color: transparent;
   padding: 0.2rem;
-  color: var(--aliceblue);
+  color: var(--text-color);
   width: calc(100% - 2rem);
 }
 

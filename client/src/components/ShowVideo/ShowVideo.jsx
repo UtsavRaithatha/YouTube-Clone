@@ -2,15 +2,20 @@ import React from "react";
 import "./ShowVideo.css";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 const ShowVideo = ({ vid }) => {
   return (
     <>
       <Link to={`/videopage/${vid?._id}`}>
-        <video
+        {/* <video
           src={process.env.REACT_APP_BACKEND_URL + vid?.filePath}
           className="video_ShowVideo"
-        ></video>
+        ></video> */}
+        <VideoPlayer
+          url={process.env.REACT_APP_BACKEND_URL + vid?.filePath}
+          showControls={false}
+        />
       </Link>
       <div className="video_description">
         <div className="Channel_logo_App">
