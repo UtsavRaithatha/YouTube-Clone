@@ -30,9 +30,8 @@ const Stream = () => {
     socketRef.current = io(process.env.REACT_APP_BACKEND_URL, { secure: true });
     myPeerRef.current = new Peer(undefined, {
       path: "/peerjs",
-      host: window.location.hostname,
-      port: window.location.protocol === "https:" ? 443 : 5000,
-      secure: window.location.protocol === "https:",
+      host: "/",
+      port: "443",
     });
 
     navigator.mediaDevices
@@ -76,7 +75,7 @@ const Stream = () => {
     myPeerRef.current.on("open", (id) => {
       setTimeout(() => {
         socketRef.current.emit("join-room", ROOM_ID, id);
-      }, 10000);
+      }, 1000);
     });
 
     return () => {
@@ -86,7 +85,6 @@ const Stream = () => {
   }, []);
 
   const connectToNewUser = (userId, stream) => {
-    console.log("New user connected");
     const call = myPeerRef.current.call(userId, stream);
     const video = document.createElement("video");
     video.id = userId;
