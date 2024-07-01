@@ -30,8 +30,9 @@ const Stream = () => {
     socketRef.current = io(process.env.REACT_APP_BACKEND_URL, { secure: true });
     myPeerRef.current = new Peer(undefined, {
       path: "/peerjs",
-      host: "/",
-      port: "5000",
+      host: window.location.hostname,
+      port: window.location.protocol === "https:" ? 443 : 5000,
+      secure: window.location.protocol === "https:",
     });
 
     navigator.mediaDevices
