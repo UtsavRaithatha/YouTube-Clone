@@ -22,7 +22,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Home</div>
+              <span className="text_sidebar_icon">Home</span>
             </p>
           </NavLink>
           <div className="icon_sidebar_div">
@@ -32,7 +32,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Explore</div>
+              <span className="text_sidebar_icon">Explore</span>
             </p>
           </div>
           <div className="icon_sidebar_div">
@@ -42,7 +42,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Subscriptions</div>
+              <span className="text_sidebar_icon">Subscriptions</span>
             </p>
           </div>
 
@@ -53,7 +53,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Shorts</div>
+              <span className="text_sidebar_icon">Shorts</span>
             </p>
           </div>
         </div>
@@ -66,7 +66,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Library</div>
+              <span className="text_sidebar_icon">Library</span>
             </p>
           </NavLink>
 
@@ -77,7 +77,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">History</div>
+              <span className="text_sidebar_icon">History</span>
             </p>
           </NavLink>
 
@@ -88,7 +88,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Your Videos</div>
+              <span className="text_sidebar_icon">Your Videos</span>
             </p>
           </NavLink>
 
@@ -99,7 +99,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Watch Later</div>
+              <span className="text_sidebar_icon">Watch Later</span>
             </p>
           </NavLink>
 
@@ -110,7 +110,7 @@ const DrawerSidebar = ({ toggleDrawer, toggleDrawerSidebar }) => {
                 className={"icon_sidebar"}
                 style={{ margin: "auto 0.7rem" }}
               />
-              <div className="text_sidebar_icon">Liked Videos</div>
+              <span className="text_sidebar_icon">Liked Videos</span>
             </p>
           </NavLink>
         </div>

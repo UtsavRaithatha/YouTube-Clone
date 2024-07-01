@@ -1,6 +1,10 @@
 import express from "express";
 import { login } from "../controllers/auth.js";
-import { updateChannelData, getAllChannels, addWatchedVideos } from "../controllers/channel.js";
+import {
+  updateChannelData,
+  getAllChannels,
+  addWatchedVideos,
+} from "../controllers/channel.js";
 
 const router = express.Router();
 

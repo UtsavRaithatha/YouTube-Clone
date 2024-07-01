@@ -1,0 +1,91 @@
+.stream {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#video-grid {
+  background-color: var(--background-color);
+  flex: 0.9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow-y: auto;
+  padding-top: 20px;
+}
+
+#video-grid video {
+  height: 40vh;
+  border-radius: 14px;
+}
+
+.video-call-controls {
+  background-color: var(--background-color);
+  flex: 0.1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  color: var(--text-color);
+}
+
+.video-call-audio-video {
+  display: flex;
+  gap: 20px;
+}
+
+.video-call-video-button,
+.video-call-mute-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: rgba(255, 0, 0, 0.853);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.control-off {
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
+}
+
+.meeting-info {
+  background-color: #3c3c3c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meeting-id {
+  margin-right: 10px;
+}
+
+.copy-meeting-id {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.copy-meeting-id:hover {
+  background-color: #2c2c2c;
+}
+
+.leave-meeting {
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

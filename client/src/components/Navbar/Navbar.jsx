@@ -19,8 +19,17 @@ import {
   verifyOTPSMS as verifyOTPSMSAction,
 } from "../../actions/verify";
 import PhoneScreen from "../PhoneScreen/PhoneScreen";
+import { removeNotification as removeNotificationAction } from "../../actions/notification";
+import moment from "moment";
+import { MdLocationOn } from "react-icons/md";
+import { FaTemperatureHigh } from "react-icons/fa";
 
-const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
+const Navbar = ({
+  toggleDrawer,
+  setEditCreateChannelBtn,
+  toggleOTPPage,
+  toggleStreamPage,
+}) => {
   const CurrentUser = useSelector((state) => state.currentUserReducer);
 
   const [authBtn, setAuthBtn] = useState(false);
@@ -29,6 +38,10 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
   const [otpType, setOtpType] = useState("phone");
   const [showOTPPage, setShowOTPPage] = useState(false);
   const [showPhonePage, setShowPhonePage] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationCnt, setNotificationCnt] = useState(0);
+
+  const tempData = useSelector((state) => state.notificationReducer.tempData);
 
   const getLocation = () => {
     fetch(`https://ipinfo.io/json?token=${process.env.REACT_APP_IPINFO_TOKEN}`)
@@ -63,6 +76,17 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
     gapi.load("client:auth2", start);
     getLocation();
   }, []);
+
+  useEffect(() => {
+    setNotificationCnt(tempData.length);
+  }, [tempData]);
+
+  const removeNotification = (timestamp) => {
+    dispatch(removeNotificationAction(timestamp));
+    const tempData = JSON.parse(localStorage.getItem("tempData")) || [];
+    const newData = tempData.filter((data) => data.timestamp !== timestamp);
+    localStorage.setItem("tempData", JSON.stringify(newData));
+  };
 
   const dispatch = useDispatch();
 
@@ -165,7 +189,13 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
               </Link>
             </div>
             <SearchBar />
-            <RiVideoAddLine size={22} className="vid_bell_Navbar" />
+            <Link
+              to="/stream"
+              onClick={() => toggleStreamPage(true)}
+              className="vid_bell_Navbar"
+            >
+              <RiVideoAddLine size={22} />
+            </Link>
             <div className="apps_Box">
               <p className="appBox"></p>
               <p className="appBox"></p>
@@ -177,7 +207,56 @@ const Navbar = ({ toggleDrawer, setEditCreateChannelBtn, toggleOTPPage }) => {
               <p className="appBox"></p>
               <p className="appBox"></p>
             </div>
-            <IoMdNotificationsOutline size={22} className="vid_bell_Navbar" />
+
+            <div
+              className="notification-icon"
+              onClick={() => setShowNotification(!showNotification)}
+            >
+              <IoMdNotificationsOutline size={22} className="vid_bell_Navbar" />
+              {notificationCnt > 0 && (
+                <span className="badge">{notificationCnt}</span>
+              )}
+            </div>
+            {showNotification && (
+              <div className="notifications-dropdown">
+                <ul>
+                  {tempData.length === 0 ? (
+                    <li>
+                      <div className="notification-item">
+                        <p>No notifications</p>
+                      </div>
+                    </li>
+                  ) : (
+                    tempData.reverse().map((data, index) => (
+                      <li key={index}>
+                        <div className="notification-item">
+                          <div className="notification-data">
+                            <p>
+                              <MdLocationOn className="notification-btns" />
+                              {data.location}
+                            </p>
+                            <p>
+                              <FaTemperatureHigh className="notification-btns" />
+                              {data.temperature}
+                            </p>
+                            <button
+                              onClick={() => removeNotification(data.timestamp)}
+                              className="notification-remove-btn"
+                            >
+                              X
+                            </button>
+                          </div>
+                          <p className="notification-time">
+                            {moment(data.timestamp).fromNow()}
+                          </p>
+                        </div>
+                      </li>
+                    ))
+                  )}
+                </ul>
+              </div>
+            )}
+
             <div className="Auth_cont_Navbar">
               {CurrentUser ? (
                 <div

@@ -33,6 +33,7 @@
 
   /* Navbar */
   --Container_Navbar-bg-color: rgb(240, 240, 240);
+  --notifications-dropdown-bg-color: white;
 
   /* SearchBar */
   --searchIcon_SearchBar-bg-color: rgb(221, 221, 221);
@@ -57,6 +58,10 @@
   /* WHL */
   --clear_history_btn: rgb(127, 127, 127);
   --leftside_whl-bg-color: rgba(240, 240, 240, 0.153);
+
+  /* VideoPlayer */
+  --video-control-btn-color: #f1f1f1;
+  --video-control-btn-color-hover: white;
 
   /* PAGES */
 
@@ -118,8 +123,8 @@
   --comment_add_btn_comments-border-bottom-hover: rgb(64, 64, 64);
   --comment_add_btn_comments-bg-color-hover: rgba(240, 248, 255, 0.05);
   --comment_body-color: rgb(197, 197, 197);
-  --usercommented-color: rgb(50, 50, 50);
-  --EditDel_DisplayComment-color: rgba(64, 64, 64, 0.696);
+  --usercommented-color: white;
+  --EditDel_DisplayComment-color: red;
 
   /* LeftSidebar */
 
@@ -138,6 +143,7 @@
 
   /* Navbar */
   --Container_Navbar-bg-color: rgb(15, 15, 15);
+  --notifications-dropdown-bg-color: rgb(40, 40, 40);
 
   /* SearchBar */
   --searchIcon_SearchBar-bg-color: rgb(34, 34, 34);
@@ -162,6 +168,10 @@
   /* WHL */
   --clear_history_btn: rgb(128, 128, 128);
   --leftside_whl-bg-color: rgba(15, 15, 15, 0.153);
+
+  /* VideoPlayer */
+  --video-control-btn-color: #f1f1f1;
+  --video-control-btn-color-hover: white;
 
   /* PAGES */
 

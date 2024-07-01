@@ -8,6 +8,8 @@ import watchLaterReducer from "./watchLater";
 import historyReducer from "./history";
 import commentReducer from "./comments";
 import verifyReducer from "./verify";
+import vidReducer from "./vids";
+import notificationReducer from "./notification";
 
 export default combineReducers({
   authReducer,
@@ -19,4 +21,6 @@ export default combineReducers({
   historyReducer,
   commentReducer,
   verifyReducer,
+  vidReducer,
+  notificationReducer,
 });

@@ -19,8 +19,9 @@
   padding-inline-start: 0.1rem;
   height: 70vh;
   width: 100%;
-  background-color: var(--background-color);
-  border: 1px solid var(--video_ShowVideo_videoPage-border);
+  background-color: var(--container_videoPage-bg-color);
+  /* background-color: var(--background-color); */
+  /* border: 1px solid var(--video_ShowVideo_videoPage-border); */
 }
 
 .video_btns_title_VideoPage_cont {
@@ -75,6 +76,7 @@
   font-weight: bolder;
   margin: auto 1rem;
   font-size: larger;
+  color: var(--text-color);
 }
 
 .comments_VideoPage {

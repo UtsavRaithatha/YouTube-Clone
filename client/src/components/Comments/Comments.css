@@ -16,9 +16,9 @@
 .comment_add_btn_comments {
   cursor: pointer;
   border: 2px solid transparent;
-  border-bottom: 2px solid var(--aliceblue);
+  border-bottom: 2px solid var(--text-color);
   background-color: transparent;
-  color: var(--aliceblue);
+  color: var(--text-color);
   font-size: large;
   width: 20%;
 }

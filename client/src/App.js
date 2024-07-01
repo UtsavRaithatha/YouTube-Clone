@@ -1,7 +1,13 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Navigate,
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import AllRoutes from "./components/AllRoutes";
 import DrawerSidebar from "./components/LeftSidebar/DrawerSidebar";
 import CreateEditChannel from "./pages/Channel/CreateEditChannel";
@@ -16,12 +22,15 @@ import DarkMode from "./components/DarkMode/DarkMode";
 import { getAllComments } from "./actions/comments";
 import Maintenance from "./pages/Maintenance/Maintenance";
 import { checkApi } from "./api";
+import Stream from "./pages/Stream/Stream";
+import CreateJoinRoom from "./pages/Stream/CreateJoinRoom";
 
 function App() {
   const dispatch = useDispatch();
   const [isMaintenance, setIsMaintenance] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [OTPPage, setOTPPage] = useState(false);
+  const [streamPage, setStreamPage] = useState(false);
 
   useEffect(() => {
     const checkMaintenance = async () => {
@@ -74,6 +83,10 @@ function App() {
     setOTPPage(val);
   };
 
+  const toggleStreamPage = (val) => {
+    setStreamPage(val);
+  };
+
   const [vidUploadPage, setVidUploadPage] = useState(false);
 
   return (
@@ -86,29 +99,39 @@ function App() {
           </Routes>
         ) : (
           <>
-            <Navbar
-              setEditCreateChannelBtn={setEditCreateChannelBtn}
-              toggleDrawer={toggleDrawer}
-              toggleOTPPage={toggleOTPPage}
-            />
-            {!OTPPage && (
+            {streamPage ? (
+              <Routes>
+                <Route path="/stream" element={<CreateJoinRoom />} />
+                <Route path="/stream/:room" element={<Stream />} />
+              </Routes>
+            ) : (
               <>
-                {vidUploadPage && (
-                  <VideoUpload setVidUploadPage={setVidUploadPage} />
-                )}
-                {editcreatechannelbtn && (
-                  <CreateEditChannel
-                    setEditCreateChannelBtn={setEditCreateChannelBtn}
-                  />
-                )}
-                <DrawerSidebar
-                  toggleDrawer={toggleDrawer}
-                  toggleDrawerSidebar={toggleDrawerSidebar}
-                />
-                <AllRoutes
+                <Navbar
                   setEditCreateChannelBtn={setEditCreateChannelBtn}
-                  setVidUploadPage={setVidUploadPage}
+                  toggleDrawer={toggleDrawer}
+                  toggleOTPPage={toggleOTPPage}
+                  toggleStreamPage={toggleStreamPage}
                 />
+                {!OTPPage && (
+                  <>
+                    {vidUploadPage && (
+                      <VideoUpload setVidUploadPage={setVidUploadPage} />
+                    )}
+                    {editcreatechannelbtn && (
+                      <CreateEditChannel
+                        setEditCreateChannelBtn={setEditCreateChannelBtn}
+                      />
+                    )}
+                    <DrawerSidebar
+                      toggleDrawer={toggleDrawer}
+                      toggleDrawerSidebar={toggleDrawerSidebar}
+                    />
+                    <AllRoutes
+                      setEditCreateChannelBtn={setEditCreateChannelBtn}
+                      setVidUploadPage={setVidUploadPage}
+                    />
+                  </>
+                )}
               </>
             )}
           </>
