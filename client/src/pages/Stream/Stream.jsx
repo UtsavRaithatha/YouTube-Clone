@@ -52,6 +52,7 @@ const Stream = () => {
         videoGridRef.current.append(myVideoRef.current);
 
         myPeerRef.current.on("call", (call) => {
+          console.log("Answering call");
           call.answer(stream);
           const video = document.createElement("video");
           video.id = call.peer;
@@ -74,6 +75,7 @@ const Stream = () => {
 
     myPeerRef.current.on("open", (id) => {
       setTimeout(() => {
+        console.log("Joining room");
         socketRef.current.emit("join-room", ROOM_ID, id);
       }, 1000);
     });
@@ -85,6 +87,7 @@ const Stream = () => {
   }, []);
 
   const connectToNewUser = (userId, stream) => {
+    console.log("New user connected");
     const call = myPeerRef.current.call(userId, stream);
     const video = document.createElement("video");
     video.id = userId;
@@ -98,6 +101,7 @@ const Stream = () => {
   };
 
   const addVideoStream = (video, stream) => {
+    console.log("Adding video stream");
     video.srcObject = stream;
     video.addEventListener("loadedmetadata", () => {
       video.play();
