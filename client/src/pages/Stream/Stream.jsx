@@ -27,63 +27,69 @@ const Stream = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    socketRef.current = io(process.env.REACT_APP_BACKEND_URL, { secure: true });
-    myPeerRef.current = new Peer(undefined, {
-      path: "/peerjs",
-      host: "/",
-      port: "443",
-    });
+    try {
+      socketRef.current = io(process.env.REACT_APP_BACKEND_URL, {
+        secure: true,
+      });
+      myPeerRef.current = new Peer(undefined, {
+        path: "/peerjs",
+        host: "/",
+        port: "443",
+      });
 
-    navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-        audio: true,
-      })
-      .then((stream) => {
-        setMyVideoStream(stream);
-        myVideoRef.current = document.createElement("video");
-        myVideoRef.current.srcObject = stream;
-        myVideoRef.current.muted = true;
-        myVideoRef.current.setAttribute("class", "my-video");
-        myVideoRef.current.id = "myVideo";
-        myVideoRef.current.addEventListener("loadedmetadata", () => {
-          myVideoRef.current.play();
-        });
-        videoGridRef.current.append(myVideoRef.current);
+      navigator.mediaDevices
+        .getUserMedia({
+          video: true,
+          audio: true,
+        })
+        .then((stream) => {
+          setMyVideoStream(stream);
+          myVideoRef.current = document.createElement("video");
+          myVideoRef.current.srcObject = stream;
+          myVideoRef.current.muted = true;
+          myVideoRef.current.setAttribute("class", "my-video");
+          myVideoRef.current.id = "myVideo";
+          myVideoRef.current.addEventListener("loadedmetadata", () => {
+            myVideoRef.current.play();
+          });
+          videoGridRef.current.append(myVideoRef.current);
 
-        myPeerRef.current.on("call", (call) => {
-          console.log("Answering call");
-          call.answer(stream);
-          const video = document.createElement("video");
-          video.id = call.peer;
-          call.on("stream", (userVideoStream) => {
-            addVideoStream(video, userVideoStream);
+          myPeerRef.current.on("call", (call) => {
+            console.log("Answering call");
+            call.answer(stream);
+            const video = document.createElement("video");
+            video.id = call.peer;
+            call.on("stream", (userVideoStream) => {
+              addVideoStream(video, userVideoStream);
+            });
+          });
+
+          socketRef.current.on("user-connected", (userId) => {
+            connectToNewUser(userId, stream);
           });
         });
 
-        socketRef.current.on("user-connected", (userId) => {
-          connectToNewUser(userId, stream);
-        });
+      socketRef.current.on("user-disconnected", (userId) => {
+        if (peers[userId]) {
+          peers[userId].close();
+        }
+        removeVideoStream(userId);
       });
 
-    socketRef.current.on("user-disconnected", (userId) => {
-      if (peers[userId]) {
-        peers[userId].close();
-      }
-      removeVideoStream(userId);
-    });
+      myPeerRef.current.on("open", (id) => {
+        setTimeout(() => {
+          console.log("Joining room");
+          socketRef.current.emit("join-room", ROOM_ID, id);
+        }, 1000);
+      });
 
-    myPeerRef.current.on("open", (id) => {
-      setTimeout(() => {
-        console.log("Joining room");
-        socketRef.current.emit("join-room", ROOM_ID, id);
-      }, 1000);
-    });
-
-    return () => {
-      socketRef.current.disconnect();
-      myPeerRef.current.destroy();
-    };
+      return () => {
+        socketRef.current.disconnect();
+        myPeerRef.current.destroy();
+      };
+    } catch (error) {
+      console.error("Error in use effect: ", error);
+    }
   }, []);
 
   const connectToNewUser = (userId, stream) => {
