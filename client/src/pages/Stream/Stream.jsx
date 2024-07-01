@@ -27,7 +27,7 @@ const Stream = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:5000");
+    socketRef.current = io(process.env.REACT_APP_BACKEND_URL, { secure: true });
     myPeerRef.current = new Peer(undefined, {
       path: "/peerjs",
       host: "/",
