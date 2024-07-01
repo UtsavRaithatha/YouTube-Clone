@@ -77,7 +77,7 @@ const Stream = () => {
     myPeerRef.current.on("open", (id) => {
       setTimeout(() => {
         socketRef.current.emit("join-room", ROOM_ID, id);
-      }, 1000);
+      }, 10000);
     });
 
     return () => {
