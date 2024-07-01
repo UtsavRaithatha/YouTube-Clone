@@ -67,7 +67,6 @@ const Stream = () => {
       });
 
     socketRef.current.on("user-disconnected", (userId) => {
-      // console.log("User disconnected: ", userId);
       if (peers[userId]) {
         peers[userId].close();
       }
@@ -87,6 +86,7 @@ const Stream = () => {
   }, []);
 
   const connectToNewUser = (userId, stream) => {
+    console.log("New user connected");
     const call = myPeerRef.current.call(userId, stream);
     const video = document.createElement("video");
     video.id = userId;
