@@ -37,6 +37,8 @@ const Stream = () => {
         port: "443",
       });
 
+      console.log(myPeerRef.current);
+
       navigator.mediaDevices
         .getUserMedia({
           video: true,
@@ -80,7 +82,7 @@ const Stream = () => {
         setTimeout(() => {
           console.log("Joining room");
           socketRef.current.emit("join-room", ROOM_ID, id);
-        }, 1000);
+        }, 2000);
       });
 
       return () => {
