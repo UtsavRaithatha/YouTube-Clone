@@ -82,7 +82,7 @@ const Stream = () => {
         setTimeout(() => {
           console.log("Joining room");
           socketRef.current.emit("join-room", ROOM_ID, id);
-        }, 2000);
+        }, 1000);
       });
 
       return () => {

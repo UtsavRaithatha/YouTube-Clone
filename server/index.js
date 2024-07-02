@@ -4,7 +4,7 @@ import cors from "cors";
 import { Server } from "http";
 import { Server as SocketIOServer } from "socket.io";
 // import { v4 as uuidV4 } from "uuid";
-import { ExpressPeerServer } from "peer";
+// import { ExpressPeerServer } from "peer";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
@@ -32,11 +32,11 @@ const io = new SocketIOServer(server, {
   },
 });
 
-const peerServer = ExpressPeerServer(server, {
-  debug: true,
-});
+// const peerServer = ExpressPeerServer(server, {
+//   debug: true,
+// });
 
-app.use("/peerjs", peerServer);
+// app.use("/peerjs", peerServer);
 
 io.on("connection", (socket) => {
   console.log("connected");
