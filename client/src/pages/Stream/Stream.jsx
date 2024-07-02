@@ -32,8 +32,8 @@ const Stream = () => {
         secure: true,
       });
       myPeerRef.current = new Peer(undefined, {
-        path: process.env.REACT_APP_BACKEND_URL + "/peerjs",
-        host: "/",
+        path: "/peerjs",
+        host: process.env.REACT_APP_BACKEND_URL,
         port: "443",
       });
 
