@@ -32,10 +32,9 @@ const Stream = () => {
         secure: true,
       });
       myPeerRef.current = new Peer(undefined, {
-        path: "/peerjs",
-        host: process.env.REACT_APP_BACKEND_URL,
-        port: "5000",
-        // referrerPolicy for cors issue
+        host: "0.peerjs.com",
+        port: "443",
+        secure: true,
       });
 
       console.log(myPeerRef.current);
