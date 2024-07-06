@@ -1,13 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import {
-  Navigate,
-  Redirect,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AllRoutes from "./components/AllRoutes";
 import DrawerSidebar from "./components/LeftSidebar/DrawerSidebar";
 import CreateEditChannel from "./pages/Channel/CreateEditChannel";
@@ -69,6 +63,10 @@ function App() {
     display: "none",
   });
 
+  const toggleStreamPage = (val) => {
+    setStreamPage(val);
+  };
+
   const [editcreatechannelbtn, setEditCreateChannelBtn] = useState(false);
 
   const toggleDrawer = () => {
@@ -83,11 +81,21 @@ function App() {
     setOTPPage(val);
   };
 
-  const toggleStreamPage = (val) => {
-    setStreamPage(val);
-  };
-
   const [vidUploadPage, setVidUploadPage] = useState(false);
+
+  const isVideoCallFeatureAvailable = () => {
+    const date = new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Kolkata",
+    });
+
+    const hours = new Date(date).getHours();
+
+    if (hours >= 18 && hours < 24) {
+      return true;
+    }
+
+    return false;
+  };
 
   return (
     <div className="App">
@@ -101,8 +109,36 @@ function App() {
           <>
             {streamPage ? (
               <Routes>
-                <Route path="/stream" element={<CreateJoinRoom />} />
-                <Route path="/stream/:room" element={<Stream />} />
+                <Route
+                  path="/stream"
+                  element={
+                    isVideoCallFeatureAvailable() ? (
+                      <CreateJoinRoom />
+                    ) : (
+                      <div className="video-call-not-available">
+                        <h1>
+                          Video Call Feature is available only from 6PM to 12AM
+                          IST.
+                        </h1>
+                      </div>
+                    )
+                  }
+                />
+                <Route
+                  path="/stream/:room"
+                  element={
+                    isVideoCallFeatureAvailable() ? (
+                      <Stream />
+                    ) : (
+                      <div className="video-call-not-available">
+                        <h1>
+                          Video Call Feature is available only from 6PM to 12AM
+                          IST.
+                        </h1>
+                      </div>
+                    )
+                  }
+                />
               </Routes>
             ) : (
               <>

@@ -44,3 +44,17 @@ video {
   background-color: var(--text-color);
   margin: auto 0.5rem;
 }
+
+.video-call-not-available {
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-call-not-available h1 {
+  margin: 0;
+  padding: 0;
+}

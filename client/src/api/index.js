@@ -86,5 +86,3 @@ export const verifyOTPSMS = (phone, otp) =>
 
 export const addWatchedVideos = (id, videoId) =>
   api.post(`/user/addWatchedVideos/${id}`, { videoId });
-
-export const viewStream = () => api.get("/api/room");

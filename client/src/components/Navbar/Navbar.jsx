@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar/SearchBar";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,6 +32,7 @@ const Navbar = ({
 }) => {
   const CurrentUser = useSelector((state) => state.currentUserReducer);
 
+  const navigate = useNavigate();
   const [authBtn, setAuthBtn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState(new Array(10).fill(""));
@@ -42,6 +43,12 @@ const Navbar = ({
   const [notificationCnt, setNotificationCnt] = useState(0);
 
   const tempData = useSelector((state) => state.notificationReducer.tempData);
+
+  useEffect(() => {
+    if (window.location.pathname.startsWith("/stream")) {
+      toggleStreamPage(true);
+    }
+  });
 
   const getLocation = () => {
     fetch(`https://ipinfo.io/json?token=${process.env.REACT_APP_IPINFO_TOKEN}`)
@@ -92,7 +99,7 @@ const Navbar = ({
 
   const sendOTP = async (emailOrPhone) => {
     try {
-      if (otpType === "phone") {
+      if (otpType === "email") {
         dispatch(sendOTPAction(emailOrPhone));
       } else {
         dispatch(sendOTPSMSAction(emailOrPhone));
@@ -106,7 +113,7 @@ const Navbar = ({
     const email = response?.profileObj.email;
     setUserEmail(email);
 
-    if (otpType === "phone") {
+    if (otpType === "email") {
       await sendOTP(email);
       setShowOTPPage(true);
       toggleOTPPage(true);
@@ -122,7 +129,7 @@ const Navbar = ({
   };
 
   const verifyOTP = async (OTP) => {
-    if (otpType === "phone") {
+    if (otpType === "email") {
       try {
         const res = await dispatch(
           VerifyOTPAction({ email: userEmail, otp: OTP })
@@ -172,6 +179,15 @@ const Navbar = ({
     toggleOTPPage(true);
   };
 
+  const handleStreamPage = () => {
+    // if (CurrentUser) {
+      toggleStreamPage(true);
+      window.location.href = "/stream";
+    // } else {
+    //   alert("Please login to stream");
+    // }
+  };
+
   return (
     <>
       {!showOTPPage && !showPhonePage ? (
@@ -189,13 +205,9 @@ const Navbar = ({
               </Link>
             </div>
             <SearchBar />
-            <Link
-              to="/stream"
-              onClick={() => toggleStreamPage(true)}
-              className="vid_bell_Navbar"
-            >
+            <div onClick={() => handleStreamPage()} className="vid_bell_Navbar">
               <RiVideoAddLine size={22} />
-            </Link>
+            </div>
             <div className="apps_Box">
               <p className="appBox"></p>
               <p className="appBox"></p>

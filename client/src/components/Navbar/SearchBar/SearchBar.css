@@ -52,3 +52,7 @@
   color: var(--text-color);
   margin: auto 0.7rem;
 }
+
+.vid_bell_Navbar {
+  cursor: pointer;
+}
