@@ -370,8 +370,10 @@ const VideoPlayer = ({ url, showControls, setShowComments, nextVid }) => {
     const width = rect.right - rect.left;
     if (x < width / 3) {
       vid.currentTime -= 10;
+      displayEventMessage(rewindIcon + `<span>&nbsp10s</span>`);
     } else if (x > (2 * width) / 3) {
       vid.currentTime += 10;
+      displayEventMessage(forwardIcon + `<span>&nbsp10s</span>`);
     }
   };
 

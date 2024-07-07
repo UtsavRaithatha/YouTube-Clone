@@ -51,7 +51,6 @@ const Stream = () => {
       secure: true,
     });
 
-
     navigator.mediaDevices
       .getUserMedia({
         video: true,
@@ -376,14 +375,13 @@ const Stream = () => {
 
   const handleVideoClick = (event) => {
     const videoElement = event.target.closest("video");
+
     if (videoElement) {
       if (videoElement.requestFullscreen) {
         videoElement.requestFullscreen();
       } else if (videoElement.webkitRequestFullscreen) {
-        // Safari
         videoElement.webkitRequestFullscreen();
       } else if (videoElement.msRequestFullscreen) {
-        // IE11
         videoElement.msRequestFullscreen();
       }
     }
@@ -460,6 +458,7 @@ const Stream = () => {
         <div
           className={isScreenShared ? "shared-screen" : ""}
           ref={sharedScreenRef}
+          onClick={handleVideoClick}
         ></div>
       </div>
       <div className="video-call-controls">

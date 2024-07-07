@@ -26,7 +26,7 @@
   transform: rotateY(180deg);
 }
 
-#video-grid-left video:fullscreen {
+.video-grid-shared-screen video:fullscreen {
   width: 100vw;
   height: 100vh;
   object-fit: contain;

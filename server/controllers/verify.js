@@ -40,7 +40,7 @@ export const sendOTP = async (req, res) => {
             <div style="text-align: center;">
               <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Clone" style="width: 100px; margin-bottom: 20px;">
             </div>
-            <h2 style="color: #333; text-align: center;">Your One-Time Password</h2>
+            <h2 style="color: #333; text-align: center;">Your OTP</h2>
             <p style="font-size: 16px; color: #555; text-align: center;">
               To complete your login, please use the following OTP:
             </p>
@@ -48,7 +48,7 @@ export const sendOTP = async (req, res) => {
               ${otp}
             </div>
             <p style="font-size: 14px; color: #777; text-align: center;">
-              This OTP is valid for 10 minutes. Please do not share it with anyone.
+              This OTP is valid for 2 minutes. Please do not share it with anyone.
             </p>
             <p style="font-size: 14px; color: #777; text-align: center;">
               If you did not request this OTP, please ignore this email.
@@ -56,10 +56,6 @@ export const sendOTP = async (req, res) => {
             <div style="text-align: center; margin-top: 20px;">
               <a href="https://you-tube-clone-iota-coral.vercel.app/" style="font-size: 14px; color: #007BFF; text-decoration: none;">Visit our website</a>
             </div>
-            <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
-            <p style="font-size: 12px; color: #aaa; text-align: center;">
-              © 2024 YouTube Clone. All rights reserved.
-            </p>
           </div>
         `,
     };
