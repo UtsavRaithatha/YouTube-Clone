@@ -16,7 +16,7 @@ const DarkMode = () => {
           state === "Telangana"
         ) {
           const time = new Date().getHours();
-          if (time >= 10 && time <= 24) {
+          if (time >= 10 && time <= 12) {
             setTheme("light");
           } else {
             setTheme("dark");
